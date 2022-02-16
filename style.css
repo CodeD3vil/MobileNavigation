@@ -1,0 +1,143 @@
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    box-sizing: border-box;
+    line-height: 1.6;
+}
+
+body {
+    background-color: darkslategray;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    font-size: 1.1rem;
+    color: whitesmoke;
+    text-decoration: none;
+    font-family: Poppins;
+    font-weight: 200;
+}
+
+/* this just gives the page more height and allows to center each section within */
+.page {
+    margin: 0 auto;
+    max-width: 1400px;
+}
+
+/* a helper class that hides element from users but allows the screen readers to see it */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* Navigation */
+.logo {
+    width: 54px;
+    margin: 2rem;
+}
+
+.flex {
+    display: flex;
+    gap: 30px;
+}
+
+.primary-header {
+    background-color: rgb(48, 48, 48);
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+}
+
+/* makes hamburger menu invisible*/
+.mobile-toggle {
+    display: none;
+}
+
+.primary-navigation a > span {
+    font-size: 1.15rem;
+    font-weight: 500;
+}
+
+.primary-navigation {
+    padding-block: 0.5rem;
+    padding-inline-end: 3rem;
+    padding-inline-start: 3rem;
+    background-color: hsl(0 0% 100% / 0.1);
+    backdrop-filter: blur(1rem);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+/* maximum size before navigation changes to mobile style */
+/* 35em = 560px */
+@media (max-width: 35em) {
+    .primary-navigation {
+        z-index: 10;
+        /* inset is a shorthand for top, right, bottom, left for positioning */
+        inset: 0 0 0 35%;
+        position: fixed;
+        border-radius: 0px;
+        flex-direction: column;
+        /* using min() function allows to set padding between 2 minimum values, it chooses the smaller one */
+        padding: min(30vh, 5rem) 3rem;
+        transition: all 0.4s ease-out;
+        /* by default the navigation is out of view hidden outside the page */
+        transform: translateX(100%);
+    }
+
+    /* if the data-visible attribute is true the menu will become visible by moving into the view */
+    .primary-navigation[data-visible="true"] {
+        transform: translateX(0%);
+    }
+
+    /* hamburger menu button */
+    .mobile-toggle {
+        cursor: pointer;
+        display: block;
+        position: absolute;
+        z-index: 100;
+        width: 1rem;
+        aspect-ratio: 1;
+        top: 1.4rem;
+        right: 2.5rem;
+        border: none;
+        background-color: rgba(128, 128, 128, 0.212);
+        width: 50px;
+        border-radius: 50%;
+        /* button stays on scroll */
+        position: fixed;
+    }
+
+    .mobile-toggle:hover {
+        
+    }
+
+    /* styling and positioning of the svg element */
+    .hamburger-button {
+        fill: whitesmoke;
+        width: 24px;
+        position: absolute;
+        left: 0.8rem;
+        top: 0.73rem;
+    }
+}
+
+/* this section is there to test the switching off the mobile menu when clicking outside the menu */
+.section {
+    height: 1000px;
+    background-color: blueviolet;
+}
