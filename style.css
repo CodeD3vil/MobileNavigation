@@ -122,10 +122,6 @@ a {
         position: fixed;
     }
 
-    .mobile-toggle:hover {
-        
-    }
-
     /* styling and positioning of the svg element */
     .hamburger-button {
         fill: whitesmoke;
@@ -138,6 +134,10 @@ a {
 
 /* this section is there to test the switching off the mobile menu when clicking outside the menu */
 .section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 1000px;
     background-color: blueviolet;
+    margin: 0 auto;
 }
